@@ -1,0 +1,50 @@
+{
+    "title": "default.theme",
+    "background": {
+        "type": "image-full",
+        "file": "back1.jpg"
+    },
+    "elements": [
+        {
+            "type": "TextBox",
+            "properties": {
+                "border": "2px gray",
+                "margin": "2 3 4 2"
+            },
+            "feature": {
+                "text": "Hello, world",
+                "font": "ubuntu 12"
+            }
+        },
+        {
+            "type": "GridBox",
+            "properties": {
+                "border": "1px blue",
+                "margin": "2"
+            },
+            "feature": {
+                "flow": "left",
+                "elements": [
+                    {
+                        "type": "TextBox",
+                        "properties": {
+                            "margin": "1"
+                        },
+                        "feature": {
+                            "text": "ABC"
+                        }
+                    },
+                    {
+                        "type": "TextBox",
+                        "properties": {
+                            "margin": "1"
+                        },
+                        "feature": {
+                            "text": "XYZ"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

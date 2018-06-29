@@ -2,12 +2,13 @@ package main
 
 import (
 	"encoding/json"
-	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"path"
+
+	"github.com/ILUGD/splatter/theme"
 )
 
 //Date  Data Structure for containing the Meetup Date
@@ -35,19 +36,20 @@ type Document struct {
 }
 
 var configFlag = flag.String("config", "NULL", "Path for the JSON config")
+var themeFlag = flag.String("theme", "NULL", "path for the Theme YAML file")
 
 func main() {
 	flag.Parse()
 
-	if *configFlag == "NULL" {
-		must(errors.New("Forgot to Enter the File Location?" +
-			"Hint : Use the -config flag"))
+	if *configFlag == "NULL" || *themeFlag == "NULL" {
+		fmt.Printf("Usage: %s -config <config.json> -theme <theme.yaml>")
 	}
 
 	configFile, err := os.Open(*configFlag)
 	defer configFile.Close()
-
 	must(err)
+
+	theme.ParseFile(*themeFlag)
 
 	var imageDetails Document
 
